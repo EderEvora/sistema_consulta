@@ -1,8 +1,6 @@
 // ============================================================
 // Camada de serviço da API
 // ============================================================
-// Endereço base do backend (Express + PostgreSQL).
-// Ajustar conforme a porta/endereço configurado pelo backend.
 // ============================================================
 
 const API_BASE_URL = 'http://localhost:3000/api';

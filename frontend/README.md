@@ -1,6 +1,6 @@
 # Frontend - Sistema de Gestão de Agendamento de Consultas
 
-Frontend em React (Vite) para o Tema 4 - Sistema de Gestão de Agendamento de Consultas.
+Frontend em React para o Tema 4 - Sistema de Gestão de Agendamento de Consultas.
 
 ## Como executar
 
