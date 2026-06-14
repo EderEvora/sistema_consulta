@@ -1,0 +1,455 @@
+:root {
+  --color-bg: #f6f7f4;
+  --color-surface: #ffffff;
+  --color-primary: #3a7d6f;
+  --color-primary-dark: #2b5e54;
+  --color-accent: #e7a857;
+  --color-text: #2a2f2e;
+  --color-text-muted: #6b7572;
+  --color-border: #e1e5e2;
+  --color-danger: #c8553d;
+  --color-success: #3a7d6f;
+  --color-warning: #e7a857;
+
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  --font-display: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+/* ===== Layout ===== */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary-dark);
+}
+
+.navbar-brand .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.btn-logout {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  transition: background 0.15s;
+}
+
+.btn-logout:hover {
+  background: var(--color-bg);
+}
+
+.page-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ===== Login ===== */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #eef4f1 0%, var(--color-bg) 60%);
+  padding: 1.5rem;
+}
+
+.login-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+.login-card h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-primary-dark);
+}
+
+.login-card .subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ===== Forms ===== */
+.field {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color 0.15s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.field-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.field-row .field {
+  flex: 1;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.65rem 1.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: filter 0.15s, transform 0.05s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-primary:disabled {
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: #eceeec;
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--color-danger);
+  border: 1px solid #f0d4cd;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+  background: #fcf1ee;
+}
+
+.btn-edit {
+  background: transparent;
+  color: var(--color-primary-dark);
+  border: 1px solid #d6e6e2;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-edit:hover {
+  background: #eef5f3;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.error-text {
+  color: var(--color-danger);
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+/* ===== Alerts ===== */
+.alert {
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.alert-success {
+  background: #e9f4f1;
+  color: var(--color-primary-dark);
+  border: 1px solid #cfe6e0;
+}
+
+.alert-error {
+  background: #fbece8;
+  color: #9b3a26;
+  border: 1px solid #f3cdc3;
+}
+
+.alert button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: inherit;
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.alert button:hover {
+  opacity: 1;
+}
+
+/* ===== Page header ===== */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  color: var(--color-primary-dark);
+}
+
+.page-header p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+/* ===== Table ===== */
+.table-wrapper {
+  background: var(--color-surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead th {
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+  background: #fafbfa;
+}
+
+tbody td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #fafbfa;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ===== Status badge ===== */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.badge-agendada {
+  background: #e7f0ff;
+  color: #2f5fa8;
+}
+
+.badge-concluida {
+  background: #e9f4f1;
+  color: var(--color-primary-dark);
+}
+
+.badge-cancelada {
+  background: #fbece8;
+  color: #9b3a26;
+}
+
+/* ===== Empty state ===== */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-text-muted);
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 30, 28, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+.modal h2 {
+  font-size: 1.25rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.2rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+/* ===== Loading ===== */
+.loading-text {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .field-row {
+    flex-direction: column;
+  }
+
+  table, thead, tbody, th, td, tr {
+    font-size: 0.85rem;
+  }
+
+  .page-content {
+    padding: 1.2rem 1rem;
+  }
+}
