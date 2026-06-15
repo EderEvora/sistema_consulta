@@ -13,7 +13,7 @@ Acesse em `http://localhost:5173`.
 
 ## Integração com o Backend
 
-Este frontend espera consumir uma API REST (Express + PostgreSQL) seguindo o
+Este frontend consume uma API REST (Express + PostgreSQL) seguindo o
 contrato abaixo. Toda a comunicação está centralizada em `src/services/api.js`.
 
 ### Endereço base da API
@@ -24,7 +24,7 @@ Por padrão está configurado para:
 const API_BASE_URL = 'http://localhost:3000/api';
 ```
 
-Ajuste essa constante em `src/services/api.js` caso o backend rode em outra
+Ajuste a constante em `src/services/api.js` caso o backend rodar em outra
 porta/endereço.
 
 ### Rotas esperadas pelo frontend
@@ -39,7 +39,7 @@ porta/endereço.
 | GET    | /api/pacientes           | Listar pacientes (para selects)     | Sim (Bearer) |
 | GET    | /api/profissionais       | Listar profissionais (para selects) | Sim (Bearer) |
 
-### Formato esperado - POST /api/auth/login
+### Formato - POST /api/auth/login
 
 **Request body:**
 ```json
@@ -59,7 +59,7 @@ porta/endereço.
 { "mensagem": "Email ou senha inválidos" }
 ```
 
-### Formato esperado - GET /api/consultas
+### Formato - GET /api/consultas
 
 Lista de consultas já com os dados de paciente/profissional/especialidade
 "achatados" via JOIN (não precisa de requisições extras no frontend):
@@ -83,7 +83,7 @@ Lista de consultas já com os dados de paciente/profissional/especialidade
 ]
 ```
 
-### Formato esperado - POST/PUT /api/consultas
+### Formato - POST/PUT /api/consultas
 
 **Request body:**
 ```json
@@ -103,7 +103,7 @@ campos `paciente_nome`, `profissional_nome`, `especialidade` via JOIN, para
 não precisar recarregar tudo - mas se não vier, o frontend recarrega a lista
 completa após cada operação).
 
-### Formato esperado - GET /api/pacientes
+### Formato - GET /api/pacientes
 
 ```json
 [
@@ -111,7 +111,7 @@ completa após cada operação).
 ]
 ```
 
-### Formato esperado - GET /api/profissionais
+### Formato - GET /api/profissionais
 
 ```json
 [
@@ -137,7 +137,7 @@ requisições autenticadas como:
 Authorization: Bearer <token>
 ```
 
-## Estrutura do projeto
+## Estrutura do frontend
 
 ```
 src/
